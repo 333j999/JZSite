@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supreme Auto Spa | Professional Car Valeting in Knaphill</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Futuristic Glassmorphism Base */
+        :root {
+            --bg-primary: #0A0A0B;
+            --bg-secondary: #1A0E26;
+            --glass-bg: rgba(26, 14, 38, 0.6);
+            --glass-border: rgba(107, 70, 193, 0.2);
+            --glow-primary: #8B5CF6;
+            --glow-secondary: #7C3AED;
+            --text-primary: #F3F4F6;
+            --text-secondary: #D1D5DB;
+            --text-muted: #9CA3AF;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            background-attachment: fixed;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 40%);
+            z-index: 0;
+            animation: slowPulse 8s ease-in-out infinite;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 30%);
+            z-index: 0;
+            animation: rotateGlow 30s linear infinite;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(139, 92, 246, 0.4);
+            box-shadow: 0 12px 48px rgba(139, 92, 246, 0.15);
+            transform: translateY(-8px);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 8px rgba(139, 92, 246, 0.4), 0 0 20px rgba(139, 92, 246, 0.2);
+        }
+        .subtle-glow {
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+        }
+        .btn-glow {
+            background: linear-gradient(45deg, var(--glow-primary), var(--glow-secondary));
+            border: none;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s ease;
+        }
+        .btn-glow:hover::before {
+            left: 100%;
+        }
+
+        nav {
+            background: rgba(10, 10, 11, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .contact-input, select {
+            background: rgba(26, 14, 38, 0.5);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-input::placeholder { color: var(--text-muted); }
+        .contact-input:focus, select:focus {
+            border-color: var(--glow-primary);
+            box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.5);
+            outline: none;
+        }
+        select option { background: var(--bg-secondary); }
+
+        .testimonial-card {
+            background: rgba(26, 14, 38, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(124, 58, 237, 0.2);
+        }
+        .testimonial-card:hover {
+            border-color: rgba(139, 92, 246, 0.4);
+            transform: translateY(-5px);
+        }
+
+        footer {
+            background: rgba(10, 10, 11, 0.9);
+            border-top: 1px solid var(--glass-border);
+            margin-top: 2rem;
+        }
+
+        /* Animations */
+        @keyframes slowPulse {
+            0%, 100% { opacity: 0.15; }
+            50% { opacity: 0.3; }
+        }
+        @keyframes rotateGlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-car text-blue-600 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold glow-text">Supreme Auto Spa</span>
+</a>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#services" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200">Services</a>
+                    <a href="#about" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200">About</a>
+                    <a href="#testimonials" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200">Testimonials</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200">Contact</a>
+                    <a href="tel:07377953967" class="btn-glow text-white px-4 py-2 rounded-md text-sm font-medium">
+<i class="fas fa-phone mr-1"></i> Call Now
+                    </a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500">
+<span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="hidden md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#services" class="text-gray-900 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <a href="#about" class="text-gray-900 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#testimonials" class="text-gray-900 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Testimonials</a>
+                <a href="#contact" class="text-gray-900 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+                <a href="tel:07377953967" class="bg-blue-600 hover:bg-blue-700 text-white block px-3 py-2 rounded-md text-base font-medium text-center transition duration-300">
+                    <i class="fas fa-phone mr-1"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero min-h-screen flex items-center justify-center text-white">
+                <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 glow-text">Supreme Auto Spa</h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-300">Car valeting</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="tel:07377953967" class="btn-glow px-6 py-3 rounded-lg text-lg font-medium">
+                    <i class="fas fa-phone mr-2"></i> 07377 953967
+                </a>
+                <a href="#contact" class="btn-glow px-6 py-3 rounded-lg text-lg font-medium">
+                    <i class="fas fa-envelope mr-2"></i> Get a Quote
+                </a>
+            </div>
+        </div>
+</section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold glow-text sm:text-4xl">Our Services</h2>
+                <p class="mt-4 text-xl text-gray-400">Simple, honest pricing and a proper clean every time.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card glass-card">
+<div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 bg-purple-900/30 p-3 rounded-full border border-purple-500/30">
+                                <i class="fas fa-car text-purple-400 text-xl"></i>
+                            </div>
+                            <h3 class="ml-3 text-xl font-bold text-white">In & Out Valet</h3>
+</div>
+                        <p class="text-gray-300 mb-4">Complete interior and exterior cleaning to restore your car's fresh appearance.</p>
+<ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-purple-400 mr-2"></i>
+<span>Thorough vacuuming</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-purple-400 mr-2"></i>
+<span>Dashboard and console cleaning</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-purple-400 mr-2"></i>
+<span>Window cleaning</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-purple-400 mr-2"></i>
+<span>Exterior wash and wax</span>
+                            </li>
+                        </ul>
+                        <div class="text-center">
+                            <span class="text-2xl font-bold text-purple-400 glow-text">£80-100</span>
+                            <p class="text-sm text-gray-400">(depending on car)</p>
+                        </div>
+</div>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card glass-card">
+<div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 bg-purple-900/30 p-3 rounded-full border border-purple-500/30">
+                                <i class="fas fa-spray-can text-purple-400 text-xl"></i>
+                            </div>
+                            <h3 class="ml-3 text-xl font-bold text-white">Exterior Wash</h3>
+</div>
+                        <p class="text-gray-300 mb-4">Professional exterior cleaning to make your car shine on the outside.</p>
+<ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Hand wash with premium products</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Wheel and tire cleaning</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Window cleaning</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Quick wax application</span>
+                            </li>
+                        </ul>
+                        <div class="text-center">
+                            <span class="text-2xl font-bold text-purple-400 glow-text">£50</span>
+                        </div>
+</div>
+                </div>
+                <!-- New Service 3: Interior Wash -->
+                <div class="service-card glass-card">
+<div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 bg-purple-900/30 p-3 rounded-full border border-purple-500/30">
+                                <i class="fas fa-couch text-purple-400 text-xl"></i>
+                            </div>
+                            <h3 class="ml-3 text-xl font-bold text-white">Interior Wash</h3>
+</div>
+                        <p class="text-gray-300 mb-4">Thorough interior cleaning to refresh your driving environment.</p>
+<ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Complete interior vacuum</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Seat and carpet shampoo</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Dashboard and trim detailing</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Pet hair removal</span>
+                            </li>
+</ul>
+                        <div class="text-center">
+                            <span class="text-2xl font-bold text-purple-400 glow-text">£50</span>
+                        </div>
+</div>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-card glass-card">
+<div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 bg-purple-900/30 p-3 rounded-full border border-purple-500/30">
+                                <i class="fas fa-shield-alt text-purple-400 text-xl"></i>
+                            </div>
+                            <h3 class="ml-3 text-xl font-bold text-white">Ceramic Coating</h3>
+</div>
+                        <p class="text-gray-300 mb-4">Premium long-lasting protection for your vehicle's paintwork (available soon).</p>
+<ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Paint decontamination</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Professional-grade ceramic coating</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Enhanced gloss and protection</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Long-lasting hydrophobic effect</span>
+                            </li>
+                        </ul>
+                        <div class="text-center">
+                            <span class="text-2xl font-bold text-purple-400 glow-text">Coming Soon</span>
+                        </div>
+</div>
+                </div>
+            </div>
+</div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+                <div class="lg:col-span-5 mb-8 lg:mb-0">
+                    <img src="https://huggingface.co/spaces/333j999/supreme-auto-spa/resolve/main/images/bmw.jpg" alt="Car detailing" class="rounded-lg shadow-xl w-full h-auto">
+</div>
+                <div class="lg:col-span-7">
+                    <h2 class="text-3xl font-extrabold glow-text sm:text-4xl mb-6">About Supreme Auto Spa</h2>
+                    <p class="text-lg text-gray-300 mb-6">Hi, I’m Jakub Zielinski—I run Supreme Auto Spa. I’ve been valeting cars for years and just love getting them looking spotless. If it’s got four wheels and needs a freshen-up, I’m your guy.</p>
+                    <p class="text-lg text-gray-300 mb-6">I’m based in Knaphill and cover the surrounding areas. Whether it’s a quick outside wash or a full inside-and-out valet, I take my time and use decent products so your car leaves looking its best.</p>
+                    <p class="text-lg text-gray-300 mb-8">I’m also gearing up to add ceramic coating to the menu soon, so even more protection and gloss will be on offer.</p>
+<div class="glass-card p-6 border-l-4 border-purple-500/50">
+<div class="flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-check-circle text-blue-600 text-2xl"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-medium text-purple-300">Excellence Guaranteed</h3>
+                                <p class="mt-1 text-purple-200">Every service comes with my personal satisfaction guarantee</p>
+                            </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold glow-text sm:text-4xl">What Our Customers Say</h2>
+                <p class="mt-4 text-xl text-gray-400">Here’s what a few happy drivers had to say.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card glass-card p-6">
+<div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-quote-left text-blue-600 text-2xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-gray-300 italic">"Jakub did an amazing job on my car! The interior looks brand new and the exterior is shining. Highly recommend Supreme Auto Spa!"</p>
+                        </div>
+</div>
+                    <div class="mt-4 flex items-center">
+                        <div class="flex-shrink-0 bg-blue-100 h-10 w-10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-blue-600"></i>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm font-medium text-white">Sarah M.</p>
+                            <p class="text-sm text-gray-400">Knaphill</p>
+                        </div>
+</div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card glass-card p-6">
+<div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-quote-left text-blue-600 text-2xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-gray-300 italic">"Best valet service in the area! My car has never been this clean since I bought it. Will definitely be using Supreme Auto Spa regularly."</p>
+                        </div>
+</div>
+                    <div class="mt-4 flex items-center">
+                        <div class="flex-shrink-0 bg-blue-100 h-10 w-10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-blue-600"></i>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm font-medium text-white">James T.</p>
+                            <p class="text-sm text-gray-400">Woking</p>
+                        </div>
+</div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card glass-card p-6">
+<div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-quote-left text-blue-600 text-2xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-gray-300 italic">"Attention to detail is incredible! Jakub noticed things I didn't even know needed cleaning. Very professional service at a great price."</p>
+                        </div>
+</div>
+                    <div class="mt-4 flex items-center">
+                        <div class="flex-shrink-0 bg-blue-100 h-10 w-10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-blue-600"></i>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm font-medium text-white">Emma K.</p>
+                            <p class="text-sm text-gray-400">Knaphill</p>
+                        </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12">
+                <div class="mb-12 lg:mb-0">
+                    <h2 class="text-3xl font-extrabold glow-text sm:text-4xl mb-6">Get In Touch</h2>
+                    <p class="text-lg text-gray-300 mb-8">Fancy a clean car without the fuss? Drop me a line and we’ll get you booked in.</p>
+<form name="contact" netlify netlify-honeypot="bot-field" class="space-y-6">
+                        <input type="hidden" name="form-name" value="contact">
+                        <p class="hidden">
+                            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                        </p>
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300">Your Name</label>
+                            <input type="text" id="name" name="name" class="mt-1 contact-input block w-full py-3 px-4" required>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300">Email Address</label>
+                            <input type="email" id="email" name="email" class="mt-1 contact-input block w-full py-3 px-4" required>
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-300">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="mt-1 contact-input block w-full py-3 px-4">
+                        </div>
+                        
+                        <div>
+                            <label for="location" class="block text-sm font-medium text-gray-300">Where are you based?</label>
+                            <select id="location" name="location" class="mt-1 contact-input block w-full py-3 px-4" required>
+<option value="">Select your area</option>
+                                <option>Knaphill</option>
+                                <option>Woking</option>
+                                <option>Brookwood</option>
+                                <option>Goldsworth Park</option>
+                                <option>Horsell</option>
+                                <option>Mayford</option>
+                                <option>Pirbright</option>
+                                <option>Chobham</option>
+                                <option>Byfleet</option>
+                                <option>Addlestone</option>
+                                <option>Ottershaw</option>
+                                <option>New Haw</option>
+                                <option>Weybridge</option>
+                                <option>Cobham</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div id="other-location-container" class="hidden">
+                            <label for="other-location" class="block text-sm font-medium text-gray-300">Other Location (please specify)</label>
+                            <input type="text" id="other-location" name="other-location" class="mt-1 contact-input block w-full py-3 px-4">
+                        </div>
+<div>
+                            <label for="service" class="block text-sm font-medium text-gray-300">Service Required</label>
+                            <select id="service" name="service" class="mt-1 contact-input block w-full py-3 px-4">
+<option>Select a service</option>
+                                <option>In & Out Valet</option>
+                                <option>Exterior Wash</option>
+                                <option>Interior Wash</option>
+                                <option>Ceramic Coating (Coming Soon)</option>
+                            </select>
+                        </div>
+<div>
+                            <label for="message" class="block text-sm font-medium text-gray-300">Message</label>
+                            <textarea id="message" name="message" rows="4" class="mt-1 contact-input block w-full py-3 px-4"></textarea>
+                        </div>
+                        
+                        <div>
+                            <button type="submit" class="w-full btn-glow py-3 px-4 rounded-lg text-lg font-medium">
+                                <i class="fas fa-paper-plane mr-2"></i> Send Message
+                            </button>
+                        </div>
+</form>
+                </div>
+                <div>
+                    <div class="bg-white/5 backdrop-blur-md p-8 rounded-lg border border-white/10">
+                        <h3 class="text-2xl font-bold text-white mb-6">Contact Information</h3>
+<div class="space-y-6">
+                            <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-purple-900/30 p-3 rounded-full border border-purple-500/30">
+                                <i class="fas fa-map-marker-alt text-purple-400"></i>
+</div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-white">Location</h4>
+                                    <p class="mt-1 text-gray-300">Knaphill, UK</p>
+                                </div>
+</div>
+                            
+                            <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-purple-900/30 p-3 rounded-full border border-purple-500/30">
+                                <i class="fas fa-phone text-purple-400"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-white">Phone</h4>
+                                <p class="mt-1 text-gray-300">07377 953967</p>
+                                <a href="tel:07377953967" class="mt-2 inline-flex items-center text-purple-400 hover:text-purple-300">
+<i class="fas fa-phone mr-1"></i> Call Now
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-purple-900/30 p-3 rounded-full border border-purple-500/30">
+                                <i class="fas fa-envelope text-purple-400"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-white">Email</h4>
+                                <p class="mt-1 text-gray-300">spremeautospa@gmail.com</p>
+                                <a href="mailto:spremeautospa@gmail.com" class="mt-2 inline-flex items-center text-purple-400 hover:text-purple-300">
+<i class="fas fa-envelope mr-1"></i> Send Email
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-purple-900/30 p-3 rounded-full border border-purple-500/30">
+                                <i class="fas fa-clock text-purple-400"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-white">Working Hours</h4>
+                                <p class="mt-1 text-gray-300">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                                <p class="mt-1 text-gray-300">Saturday: 9:00 AM - 4:00 PM</p>
+                                <p class="mt-1 text-gray-300">Sunday: Closed</p>
+                            </div>
+</div>
+                            
+                            <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-purple-900/30 p-3 rounded-full border border-purple-500/30">
+                                <i class="fas fa-share-alt text-purple-400"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-white">Follow Us</h4>
+                    <div class="mt-2 flex space-x-4">
+                                        <a href="#" class="text-gray-400 hover:text-purple-400">
+                                            <i class="fab fa-instagram text-xl"></i>
+                                        </a>
+</div>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-white py-12 border-t border-white/10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <a href="#" class="flex items-center mb-4">
+                        <i class="fas fa-car text-purple-400 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-white">Supreme Auto Spa</span>
+</a>
+                    <p class="text-gray-400">Professional car valeting services in Knaphill and surrounding areas.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-purple-400 transition duration-300">In & Out Valet (£80-100)</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-purple-400 transition duration-300">Exterior Wash (£50)</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-purple-400 transition duration-300">Interior Wash (£50)</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-purple-400 transition duration-300">Ceramic Coating (Soon)</a></li>
+</ul>
+</div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="text-gray-300 hover:text-purple-400 transition duration-300">Services</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-purple-400 transition duration-300">About</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-purple-400 transition duration-300">Contact</a></li>
+                    </ul>
+</div>
+            </div>
+            <div class="border-t border-white/10 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-400">© 2023 Supreme Auto Spa. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://www.instagram.com/supreme_auto_valet/" class="text-gray-400 hover:text-purple-400 transition duration-300">
+                        <i class="fab fa-instagram"></i>
+</a>
+                </div>
+</div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-purple-600/80 backdrop-blur-md border border-purple-500/50 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-purple-600">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+<script>
+        // Location dropdown handler
+        const locationSelect = document.getElementById('location');
+        const otherLocationContainer = document.getElementById('other-location-container');
+        
+        locationSelect.addEventListener('change', function() {
+            if (this.value === 'Other') {
+                otherLocationContainer.classList.remove('hidden');
+            } else {
+                otherLocationContainer.classList.add('hidden');
+            }
+        });
+
+        // Service dropdown handler
+        const serviceSelect = document.getElementById('service');
+        const otherServiceContainer = document.getElementById('other-service-container');
+        
+        serviceSelect.addEventListener('change', function() {
+            if (this.value === 'Other') {
+                otherServiceContainer.classList.remove('hidden');
+            } else {
+                otherServiceContainer.classList.add('hidden');
+            }
+        });
+// Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuButton.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+// Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Adds a subtle entrance animation to all glass cards on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.glass-card, .hero').forEach(el => observer.observe(el));
+// Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+    <!-- Preload Interest font for improved performance -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=333j999/supreme-auto-spa" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
